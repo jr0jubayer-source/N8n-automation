@@ -1,21 +1,21 @@
-services:
+yaml services:
   - type: web
-    name: n8n-automation
+    name: n8n
     env: docker
-    plan: free
-    dockerfilePath: ./Dockerfile
+    plan: starter
+    repo: https://github.com/jr0jubayer-source/N8n-automation
     envVars:
       - key: N8N_BASIC_AUTH_ACTIVE
         value: true
       - key: N8N_BASIC_AUTH_USER
         value: admin
       - key: N8N_BASIC_AUTH_PASSWORD
-        value: changeme123
-      - key: GENERIC_TIMEZONE
-        value: America/New_York
-      - key: N8N_ENCRYPTION_KEY
-        generateValue: true
-    disk:
-      name: n8n-data
-      mountPath: /home/node/.n8n
-      sizeGB: 1
+        value: password
+      - key: N8N_HOST
+        value: n8n.onrender.com
+      - key: N8N_PORT
+        value: 443
+      - key: N8N_PROTOCOL
+        value: https
+      - key: WEBHOOK_TUNNEL_URL
+        value: https://n8n.onrender.com
